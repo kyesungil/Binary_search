@@ -1,4 +1,4 @@
-# Binary_search_Tree(BST)  
+# A. Binary_search_Tree(BST)  
 ## 1.1 Tree 구성  
 * __Root Node:__ 첫노드  
 * __Subtree Node:__ Subree(root->left, root->right) Node들이 또다른 작은 tree을 만든다. 
@@ -307,7 +307,9 @@ static Pair SeekItem(const Item* pi, const Tree* ptree);  // 검색한 date에 �
 static void DeleteAllNodes(Node* root);
 
 static int(*compare_func)(const Item item1, const Item item2) = NULL; // data(key)비교 함수  
-```  
-***  
+```    
 [인프런-홍정모의 따라하며 배우는 c언어 부록 참조]  
 2020-06-10  
+  
+
+
