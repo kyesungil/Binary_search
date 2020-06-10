@@ -37,7 +37,7 @@ bool AddItem(const Item* pi, Tree* ptree);
 bool InTree(const Item* pi, const Tree* ptree);
 bool DeleteItem(const Item* pi, Tree* ptree);
 void Traverse(const Tree* ptree, void (*pfun)(Item item));
-//void DeleteAll(Tree* ptree);
+void DeleteAll(Tree* ptree);
 Item* TreeSearch(Tree* tree, const Item key);
 
 
