@@ -21,11 +21,11 @@ static int(*compare_func)(const Item item1, const Item item2) = NULL;
 
 /*****************************************************************************
 *                                                                            *
-* @ NAME      : InitializeTree											     *
-* @ FUNCTION  : binary tree Inititalize									     *
-* @ PARAMETER :	Tree ±¸Á¶Ã¼ Æ÷ÀÎÅÍ, item.character ¹®ÀÚ¿­ ºñ±³ÇÔ¼ö				 *
-* @ RETURN	  : ¾øÀ½															 *
-*																			 *
+* @ NAME      : InitializeTree						     *
+* @ FUNCTION  : binary tree Inititalize					     *
+* @ PARAMETER :	Tree êµ¬ì¡°ì²´ í¬ì¸í„°, item.character ë¬¸ìžì—´ ë¹„êµí•¨ìˆ˜		  
+* @ RETURN	  : ì—†ìŒ							   *								 *
+*									     *										 *
 *****************************************************************************/
 
 void InitializeTree(Tree* ptree, int(comp_func)(const Item item1, const Item item2))
@@ -37,12 +37,12 @@ void InitializeTree(Tree* ptree, int(comp_func)(const Item item1, const Item ite
 
 /*****************************************************************************
 *                                                                            *
-* @ NAME      : TreeIsEmpty												     *
-* @ FUNCTION  : Tree¿¡ ³ëµå°¡ 0ÀÎÁö È®ÀÎ										 *
-				1. TreeÀÇ size°¡ 0ÀÎÁö È®ÀÎ									 *
-* @ PARAMETER :	Tree ±¸Á¶Ã¼ Æ÷ÀÎÅÍ											 *
-* @ RETURN	  : bool ¼º°ø true												 *
-*																			 *
+* @ NAME      : TreeIsEmpty						     *
+* @ FUNCTION  : Treeì— ë…¸ë“œê°€ 0ì¸ì§€ í™•ì¸				      *
+		1. Treeì˜ sizeê°€ 0ì¸ì§€ í™•ì¸                                   *
+* @ PARAMETER :	Tree êµ¬ì¡°ì²´ í¬ì¸í„°					        *
+* @ RETURN    : bool ì„±ê³µ true					           *
+*									     *										 *
 *****************************************************************************/
 
 bool TreeIsEmpty(const Tree* ptree)
@@ -53,10 +53,10 @@ bool TreeIsEmpty(const Tree* ptree)
 /*****************************************************************************
 *                                                                            *
 * @ NAME      : TreeIsFull												     *
-* @ FUNCTION  : Tree¿¡ ³ëµå°¡ MaxÀÎÁö È®ÀÎ									 *
-				1. TreeÀÇ size°¡ MAXITEMSÀÎÁö È®ÀÎ							 *
-* @ PARAMETER :	Tree ±¸Á¶Ã¼ Æ÷ÀÎÅÍ											 *
-* @ RETURN	  : bool ¼º°ø true												 *
+* @ FUNCTION  : Treeì— ë…¸ë“œê°€ Maxì¸ì§€ í™•ì¸									 *
+				1. Treeì˜ sizeê°€ MAXITEMSì¸ì§€ í™•ì¸							 *
+* @ PARAMETER :	Tree êµ¬ì¡°ì²´ í¬ì¸í„°											 *
+* @ RETURN	  : bool ì„±ê³µ true												 *
 *																			 *
 *****************************************************************************/
 
@@ -67,10 +67,10 @@ bool TreeIsFull(const Tree* ptree)
 
 /*****************************************************************************
 *                                                                            *
-* @ NAME      : TreeItemCount												 *
-* @ FUNCTION  : Tree¿¡ ³ëµå°¡ size È®ÀÎ										 *
-* @ PARAMETER :	Tree ±¸Á¶Ã¼ Æ÷ÀÎÅÍ											 *
-* @ RETURN	  : (int) TreeÀÇ size 											 *
+* @ NAME      : TreeItemCount				                     *
+* @ FUNCTION  : Treeì— ë…¸ë“œê°€ size í™•ì¸					*
+* @ PARAMETER :	Tree êµ¬ì¡°ì²´ í¬ì¸í„°						*
+* @ RETURN	  : (int) Treeì˜ size 					    *
 *																			 *
 *****************************************************************************/
 
@@ -82,16 +82,16 @@ int TreeItemCount(const Tree* ptree)
 
 /*****************************************************************************
 *                                                                            *
-* @ NAME      : AddItem														 *
-* @ FUNCTION  : Tree¿¡ ¾ÆÀÌÅÛ Ãß°¡ÇÏ±â										 *
-* @ PARAMETER :	Ãß°¡ÇÒ ItemÆ÷ÀÎÅÍ, Tree ±¸Á¶Ã¼ Æ÷ÀÎÅÍ							 *
-* @ RETURN	  : (bool) ¼º°ø true; 											 *
+* @ NAME      : AddItem							     *
+* @ FUNCTION  : Treeì— ì•„ì´í…œ ì¶”ê°€í•˜ê¸°					       *
+* @ PARAMETER :	ì¶”ê°€í•  Itemí¬ì¸í„°, Tree êµ¬ì¡°ì²´ í¬ì¸í„°			   *
+* @ RETURN	  : (bool) ì„±ê³µ true; 			                   *
 *																			 *
 *****************************************************************************/
 
 bool AddItem(const Item* pi, Tree* ptree)
 {
-	// »õ·Î¿î ³ëµå ¸¸µé±â (µ¿ÀûÇÒ´ç)
+	// ìƒˆë¡œìš´ ë…¸ë“œ ë§Œë“¤ê¸° (ë™ì í• ë‹¹)
 	Node* new_node = (Node*)malloc(sizeof(Node));
 	if (new_node == NULL)
 	{
@@ -102,23 +102,23 @@ bool AddItem(const Item* pi, Tree* ptree)
 	new_node->left = NULL;
 	new_node->right = NULL;
 
-	if (ptree->root == NULL)		// TreeÀÇ root°¡ ¾øÀ» ¶§
+	if (ptree->root == NULL)		// Treeì˜ rootê°€ ì—†ì„ ë•Œ
 		ptree->root = new_node;
 	else
-		AddNode(new_node, ptree->root); // Node Ãß°¡ ÇÔ¼ö È£Ãâ
+		AddNode(new_node, ptree->root); // Node ì¶”ê°€ í•¨ìˆ˜ í˜¸ì¶œ
 	
 	return true;
 }
 
 /*****************************************************************************
 *                                                                            *
-* @ NAME      : AddNode														 *
-* @ FUNCTION  : Tree¿¡ Node Ãß°¡ÇÏ±â											 *
-*				1. »õ·Î Ãß°¡ÇÒ NodeÀÇ À§Ä¡ Á¤ÇÏ±â(¾ËÆÄºª ¼ø)					 *
-*				2. ¾ËÆÄºª ¼øÀÌ ºü¸£¸é left, ´À¸®¸é rigt·Î ÀÌµ¿					 *
-*				3. ±× Node(left or right)°¡ NULLÀÌ¸é ¿¬°á, ¾Æ´Ï¸é 2¹ø ¹Ýº¹		 *
-* @ PARAMETER :	Ãß°¡ÇÒ NodeÆ÷ÀÎÅÍ, TreeÀÇ Node Æ÷ÀÎÅÍ							 *
-* @ RETURN	  : ¾øÀ½ 														 *
+* @ NAME      : AddNode							     *
+* @ FUNCTION  : Treeì— Node ì¶”ê°€í•˜ê¸°						 *
+*		1. ìƒˆë¡œ ì¶”ê°€í•  Nodeì˜ ìœ„ì¹˜ ì •í•˜ê¸°(ì•ŒíŒŒë²³ ìˆœ)			 *
+*		2. ì•ŒíŒŒë²³ ìˆœì´ ë¹ ë¥´ë©´ left, ëŠë¦¬ë©´ rigtë¡œ ì´ë™		  *
+*		3. ê·¸ Node(left or right)ê°€ NULLì´ë©´ ì—°ê²°, ì•„ë‹ˆë©´ 2ë²ˆ ë°˜ë³µ	    *
+* @ PARAMETER :	ì¶”ê°€í•  Nodeí¬ì¸í„°, Treeì˜ Node í¬ì¸í„°			     *
+* @ RETURN	  : ì—†ìŒ 							   *
 *																			 *
 *****************************************************************************/
 
@@ -126,7 +126,7 @@ static void AddNode(Node* new_node, Node* root)
 {
 	int comp = compare_func(root->item, new_node->item);
 
-	/* Áßº¹µÈ ¾ÆÀÌÅÛÀ» Ãß°¡ÇÒ °æ¿ì, Ãß°¡ÇÏÁö ¾ÊÀ½ */
+	/* ì¤‘ë³µëœ ì•„ì´í…œì„ ì¶”ê°€í•  ê²½ìš°, ì¶”ê°€í•˜ì§€ ì•ŠìŒ */
 	if (comp == 0)	
 	{
 		printf("Cannot add duplicate items.\n");
@@ -153,9 +153,9 @@ static void AddNode(Node* new_node, Node* root)
 /*****************************************************************************
 *                                                                            *
 * @ NAME      : Traverse													 *
-* @ FUNCTION  : Tree¿¡ Node, ItemÀÇ character¹®ÀÚ¿­ ¿À¸§Â÷¼øÀ¸·Î Ãâ·Â			 *
-* @ PARAMETER :	Tree Æ÷ÀÎÅÍ, ÇÔ¼ö Æ÷ÀÎÅÍ										 *
-* @ RETURN	  : ¾øÀ½ 														 *
+* @ FUNCTION  : Treeì— Node, Itemì˜ characterë¬¸ìžì—´ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì¶œë ¥			 *
+* @ PARAMETER :	Tree í¬ì¸í„°, í•¨ìˆ˜ í¬ì¸í„°										 *
+* @ RETURN	  : ì—†ìŒ 														 *
 *																			 *
 *****************************************************************************/
 
@@ -169,13 +169,13 @@ void Traverse(const Tree* ptree, void (*pfun)(Item item))
 /*****************************************************************************
 *                                                                            *
 * @ NAME      : AddNode														 *
-* @ FUNCTION  : Tree¿¡ Node, ItemÀÇ character¹®ÀÚ¿­ ¿À¸§Â÷¼øÀ¸·Î Ãâ·Â			 *
-*				1. left·Î ÀÌµ¿ left°¡ NULLÀÌ¸é ¹ÝÈ¯, ¾Æ´Ï¸é °è¼Ó ÀÌµ¿			 *
-*				2. 1¹ø ¹ÝÈ¯½Ã Item Ãâ·Â										 *
-*				3. right·Î ÀÌµ¿ right°¡ NULLÀÌ¸é ¹ÝÈ¯, ¾Æ´Ï¸é °è¼Ó ÀÌµ¿		 *
-*				4. 1,2,3 ¹Ýº¹ (Àç±ÍÇÔ¼ö)										 *
-* @ PARAMETER :	NodeÆ÷ÀÎÅÍ, ÇÔ¼ö Æ÷ÀÎÅÍ										 *
-* @ RETURN	  : ¾øÀ½ 														 *
+* @ FUNCTION  : Treeì— Node, Itemì˜ characterë¬¸ìžì—´ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì¶œë ¥			 *
+*				1. leftë¡œ ì´ë™ leftê°€ NULLì´ë©´ ë°˜í™˜, ì•„ë‹ˆë©´ ê³„ì† ì´ë™			 *
+*				2. 1ë²ˆ ë°˜í™˜ì‹œ Item ì¶œë ¥										 *
+*				3. rightë¡œ ì´ë™ rightê°€ NULLì´ë©´ ë°˜í™˜, ì•„ë‹ˆë©´ ê³„ì† ì´ë™		 *
+*				4. 1,2,3 ë°˜ë³µ (ìž¬ê·€í•¨ìˆ˜)										 *
+* @ PARAMETER :	Nodeí¬ì¸í„°, í•¨ìˆ˜ í¬ì¸í„°										 *
+* @ RETURN	  : ì—†ìŒ 														 *
 *																			 *
 *****************************************************************************/
 
@@ -193,9 +193,9 @@ static void InOrder(const Node* root, void(*pfun)(Item item))
 /*****************************************************************************
 *                                                                            *
 * @ NAME      : InTree														 *
-* @ FUNCTION  : ³»°¡ Ã£´Â itemÀÌ ÀÖ´ÂÁö È®ÀÎ									 *
-* @ PARAMETER :	Item Æ÷ÀÎÅÍ, Tree Æ÷ÀÎÅÍ										 *
-* @ RETURN	  : (bool) ¼º°ø true, ½ÇÆÐ false 								 *
+* @ FUNCTION  : ë‚´ê°€ ì°¾ëŠ” itemì´ ìžˆëŠ”ì§€ í™•ì¸									 *
+* @ PARAMETER :	Item í¬ì¸í„°, Tree í¬ì¸í„°										 *
+* @ RETURN	  : (bool) ì„±ê³µ true, ì‹¤íŒ¨ false 								 *
 *																			 *
 *****************************************************************************/
 
@@ -207,13 +207,13 @@ bool InTree(const Item* pi, const Tree* ptree)
 
 /*****************************************************************************
 *                                                                            *
-* @ NAME      : SeekItem													 *
-* @ FUNCTION  : ³»°¡ Ã£´Â itemÀÌ ÀÖ´ÂÁö È®ÀÎ									 *
-*				1. ³»°¡ Ã£´Â item°ú treeÀÇ ³ëµåµé°ú ¹®ÀÚ¿­ ºñ±³				 *
-*				2. Ã£´Â item¾ËÆÄºª ¼øÀÌ ºü¸£¸é left·Î ÀÌµ¿, ´À¸®¸é right ÀÌµ¿	 *
-*				3. ÀÏÄ¡ÇÏ´Â itemÀÌ ³ª¿À¸é ±¸Á¶Ã¼ Pair¹ÝÈ¯						 *	
-* @ PARAMETER :	Item Æ÷ÀÎÅÍ, Tree Æ÷ÀÎÅÍ										 *
-* @ RETURN	  : ±¸Á¶Ã¼ Pair 													 *
+* @ NAME      : SeekItem						     *
+* @ FUNCTION  : ë‚´ê°€ ì°¾ëŠ” itemì´ ìžˆëŠ”ì§€ í™•ì¸				     *
+*		1. ë‚´ê°€ ì°¾ëŠ” itemê³¼ treeì˜ ë…¸ë“œë“¤ê³¼ ë¬¸ìžì—´ ë¹„êµ		 *
+*		2. ì°¾ëŠ” itemì•ŒíŒŒë²³ ìˆœì´ ë¹ ë¥´ë©´ leftë¡œ ì´ë™, ëŠë¦¬ë©´ right ì´ë™   *
+*		3. ì¼ì¹˜í•˜ëŠ” itemì´ ë‚˜ì˜¤ë©´ êµ¬ì¡°ì²´ Pairë°˜í™˜			  *	
+* @ PARAMETER :	Item í¬ì¸í„°, Tree í¬ì¸í„°				        *
+* @ RETURN	  : êµ¬ì¡°ì²´ Pair 						  *
 *																			 *
 *****************************************************************************/
 
@@ -250,13 +250,13 @@ static Pair SeekItem(const Item* pi, const Tree* ptree)
 /*****************************************************************************
 *                                                                            *
 * @ NAME      : DeleteItem													 *
-* @ FUNCTION  : ÇØ´ç Item Á¦°Å												 *
-*				1. SeekItemÇÔ¼ö È£Ãâ. »èÁ¦ÇÒ ItemÀÌÀÖ´Â NodeÀ» child·Î ¹Þ¾Æ¿È	 *
-*				2. Parent Node°¡ right or left or root¿¡¼­ ¿Ô´ÂÁö Ã¼Å©		 *
-*				3. DeleteNodeÇÔ¼ö È£Ãâ										 *
-*				4. Tree Item°³¼ö -1											 *
-* @ PARAMETER :	Á¦°ÅÇÒ Item Æ÷ÀÎÅÍ, Tree Æ÷ÀÎÅÍ								 *
-* @ RETURN	  : (bool) ¼º°ø true, ½ÇÆÐ false 								 *
+* @ FUNCTION  : í•´ë‹¹ Item ì œê±°												 *
+*				1. SeekItemí•¨ìˆ˜ í˜¸ì¶œ. ì‚­ì œí•  Itemì´ìžˆëŠ” Nodeì„ childë¡œ ë°›ì•„ì˜´	 *
+*				2. Parent Nodeê°€ right or left or rootì—ì„œ ì™”ëŠ”ì§€ ì²´í¬		 *
+*				3. DeleteNodeí•¨ìˆ˜ í˜¸ì¶œ										 *
+*				4. Tree Itemê°œìˆ˜ -1											 *
+* @ PARAMETER :	ì œê±°í•  Item í¬ì¸í„°, Tree í¬ì¸í„°								 *
+* @ RETURN	  : (bool) ì„±ê³µ true, ì‹¤íŒ¨ false 								 *
 *																			 *
 *****************************************************************************/
 
@@ -283,12 +283,12 @@ bool DeleteItem(const Item* pi, Tree* ptree)
 /*****************************************************************************
 *                                                                            *
 * @ NAME      : DeleteNode													 *
-* @ FUNCTION  : ÇØ´ç Item Node Á¦°Å											 *
-*				1. »èÁ¦ÇÒ NodeÀÇ Child NodeÀÇ left, right°¡ NULLÀÎÁö Ã¼Å©		 *
-*				2. »èÁ¦ÇÒ NodeÀÇ Parent Node¿Í Child Node ¿¬°á				 *
-*				3. freeÇÔ¼ö·Î Á¦°Å											 *
-* @ PARAMETER :	»èÁ¦ÇÒ NodeÀÇ Parent NodeÀÇ left or right (Node ÀÌÁßÆ÷ÀÎÅÍ)	 *
-* @ RETURN	  : ¾øÀ½							 								 *
+* @ FUNCTION  : í•´ë‹¹ Item Node ì œê±°											 *
+*				1. ì‚­ì œí•  Nodeì˜ Child Nodeì˜ left, rightê°€ NULLì¸ì§€ ì²´í¬		 *
+*				2. ì‚­ì œí•  Nodeì˜ Parent Nodeì™€ Child Node ì—°ê²°				 *
+*				3. freeí•¨ìˆ˜ë¡œ ì œê±°											 *
+* @ PARAMETER :	ì‚­ì œí•  Nodeì˜ Parent Nodeì˜ left or right (Node ì´ì¤‘í¬ì¸í„°)	 *
+* @ RETURN	  : ì—†ìŒ							 								 *
 *																			 *
 *****************************************************************************/
 
@@ -331,12 +331,12 @@ Item* TreeSearch(Tree* tree, const Item key)
 /*****************************************************************************
 *                                                                            *
 * @ NAME      : DeleteAll													 *
-* @ FUNCTION  : ÇØ´ç Tree ¸ðµç Node Á¦°Å										 *
-*				1. DeleteAllNodesÈ£Ãâ ¸ðµç NodeÁ¦°Å							 *
-*				2. TreeÀÇ Item°³¼ö 0											 *
-*				3. TreeÀÇ root´Â NULL										 *
-* @ PARAMETER :	Tree Æ÷ÀÎÅÍ													 *
-* @ RETURN	  : ¾øÀ½							 								 *
+* @ FUNCTION  : í•´ë‹¹ Tree ëª¨ë“  Node ì œê±°										 *
+*				1. DeleteAllNodesí˜¸ì¶œ ëª¨ë“  Nodeì œê±°							 *
+*				2. Treeì˜ Itemê°œìˆ˜ 0											 *
+*				3. Treeì˜ rootëŠ” NULL										 *
+* @ PARAMETER :	Tree í¬ì¸í„°													 *
+* @ RETURN	  : ì—†ìŒ							 								 *
 *																			 *
 *****************************************************************************/
 
@@ -353,16 +353,16 @@ void DeleteAll(Tree* ptree)
 /*****************************************************************************
 *                                                                            *
 * @ NAME      : DeleteAllNodes												 *
-* @ FUNCTION  : ÇØ´ç Tree ¸ðµç Node Á¦°Å (Àç±ÍÇÔ¼ö)							 *
-*				1. LeftÀÌµ¿ÇÏ±â Àü, rightÀ» Node* pright¿¡ ÀúÀå				 *
-*				2. Left·Î ÀÌµ¿->left°¡ NULLÀÌ¸é return; NULLÀÌ ¾Æ´Ï¸é			 *
-*				   ´ÙÀ½ NodeÀÇ Left·Î ÀÌµ¿									 *
-*				3. left°¡ NULL·Î return;->Left Node´Â free Á¦°Å				 *						 *
-*				4. (pright)right·Î ÀÌµ¿->right°¡ NULLÀÌ¸é return;				 *
-*				   NULLÀÌ ¾Æ´Ï¸é ´ÙÀ½ NodeÀÇ Left·Î ÀÌµ¿						 *
-*				5. 1,2,3,4 ¹Ýº¹												 *
-* @ PARAMETER :	Node Æ÷ÀÎÅÍ													 *
-* @ RETURN	  : ¾øÀ½							 								 *
+* @ FUNCTION  : í•´ë‹¹ Tree ëª¨ë“  Node ì œê±° (ìž¬ê·€í•¨ìˆ˜)							 *
+*				1. Leftì´ë™í•˜ê¸° ì „, rightì„ Node* prightì— ì €ìž¥				 *
+*				2. Leftë¡œ ì´ë™->leftê°€ NULLì´ë©´ return; NULLì´ ì•„ë‹ˆë©´			 *
+*				   ë‹¤ìŒ Nodeì˜ Leftë¡œ ì´ë™									 *
+*				3. leftê°€ NULLë¡œ return;->Left NodeëŠ” free ì œê±°				 *						 *
+*				4. (pright)rightë¡œ ì´ë™->rightê°€ NULLì´ë©´ return;				 *
+*				   NULLì´ ì•„ë‹ˆë©´ ë‹¤ìŒ Nodeì˜ Leftë¡œ ì´ë™						 *
+*				5. 1,2,3,4 ë°˜ë³µ												 *
+* @ PARAMETER :	Node í¬ì¸í„°													 *
+* @ RETURN	  : ì—†ìŒ							 								 *
 *																			 *
 *****************************************************************************/
 
